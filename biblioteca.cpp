@@ -40,7 +40,11 @@ void adicionarLivro(){
     qtdeLivros++;
 }
 
-void editarLivro();
+void editarLivro(){
+    
+}
+
+
 void removerLivro();
 
 void exibirLivro(){
@@ -54,7 +58,13 @@ void exibirLivro(){
     cout << "Nome: " << livro.nome << "\nAutor: " << livro.autor << "\nNumero de Paginas: " << livro.numeroPaginas << endl;
 }
 
-void exibirBiblioteca();
+void exibirBiblioteca(){
+    for(int i = 0; i < qtdeLivros; i++){
+        cout << "Nome: " << biblioteca[i].nome << endl;
+        cout << "Autor: " << biblioteca[i].autor << endl;
+        cout << "Numero de paginas: " << biblioteca[i].numeroPaginas << endl;
+    }
+}
 
 int main(){
 
