@@ -45,14 +45,13 @@ void editarLivro(){
 }
 
 
-void removerLivro();
-
 void exibirLivro(){
     int id = pegarId();
     LIVRO livro;
     for(int i = 0; i < qtdeLivros; i++){
         if(biblioteca[i].id == id){
             livro = biblioteca[i];
+            break;
         }
     }
     cout << "Nome: " << livro.nome << "\nAutor: " << livro.autor << "\nNumero de Paginas: " << livro.numeroPaginas << endl;
