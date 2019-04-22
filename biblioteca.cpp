@@ -28,7 +28,15 @@ void adicionarLivro(){
 
     LIVRO novoLivro;
     cout << "Insira o ID" << endl;
-    cin >> novoLivro.id;
+    int idInserido;
+    cin >> idInserido;
+    for(int i = 0; i < qtdeLivros; i++){
+        if(biblioteca[i].id == idInserido){
+            cout << "ID ja existe, insira outro livro \n";
+            return;
+        }
+    }
+    novoLivro.id = idInserido;
     cout << "Insira o nome" << endl;
     cin >> novoLivro.nome;
     cout << "Insira o autor" << endl;
@@ -90,7 +98,7 @@ void exibirBiblioteca(){
             cout << "Numero de paginas: " << biblioteca[i].numeroPaginas << endl;
         }
     }else{
-        cout << "Bilioteca vazia!";
+        cout << "Bilioteca vazia!" << endl;
     }
 
 }
