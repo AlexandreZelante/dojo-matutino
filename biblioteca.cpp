@@ -44,6 +44,24 @@ void editarLivro(){
     
 }
 
+void removerLivro(){
+    int id = pegarId();
+    int indexLivro = 0;
+    LIVRO livro;
+    
+    for(int i = 0; i < qtdeLivros; i++){
+        if(biblioteca[i].id == id){         
+            //Ajeita os index
+            for(int j = i; j < qtdeLivros; j++){
+                biblioteca[j] = biblioteca[j+1];
+            }
+            qtdeLivros--;
+            break;
+        }
+    }
+    cout << "Livro não encontrado";
+}
+
 
 void exibirLivro(){
     int id = pegarId();
@@ -75,7 +93,7 @@ int main(){
                 adicionarLivro();
                 break;
             case 2:
-                editarLivro();
+                //editarLivro();
                 break;
             case 3:
                 exibirLivro();
@@ -84,7 +102,7 @@ int main(){
                 exibirBiblioteca();
                 break;
             case 5:
-                removerLivro();
+                //removerLivro();
                 break;
             default:
                 cout << "Digite um comando valido";
