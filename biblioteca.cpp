@@ -64,10 +64,11 @@ void removerLivro(){
                 biblioteca[j] = biblioteca[j+1];
             }
             qtdeLivros--;
-            break;
+            cout << "Livro removido com sucesso" << endl;
+            return;
         }
     }
-    cout << "Livro não encontrado";
+    cout << "Livro nao encontrado" << endl;
 }
 
 
@@ -83,7 +84,7 @@ void exibirLivro(){
     }
 
     if(i != qtdeLivros){
-        cout << "Nome: " << livro.nome << "\nAutor: " << livro.autor << "\nNumero de Paginas: " << livro.numeroPaginas << endl;
+        cout << "Nome: " << livro.nome << "\nAutor: " << livro.autor << "\nNumero de Paginas: " << livro.numeroPaginas << endl << endl;
     }else{
         cout << "Livro nao encontrado!" << endl;
     }
@@ -95,7 +96,7 @@ void exibirBiblioteca(){
         for(int i = 0; i < qtdeLivros; i++){
             cout << "Nome: " << biblioteca[i].nome << endl;
             cout << "Autor: " << biblioteca[i].autor << endl;
-            cout << "Numero de paginas: " << biblioteca[i].numeroPaginas << endl;
+            cout << "Numero de paginas: " << biblioteca[i].numeroPaginas << endl << endl;
         }
     }else{
         cout << "Bilioteca vazia!" << endl;
