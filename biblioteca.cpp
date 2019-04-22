@@ -14,7 +14,7 @@ LIVRO biblioteca[MAXLIVROS];
 int qtdeLivros = 0;
 
 int pegarId(){
-    cout << "Informe o ID do livro";
+    cout << "Informe o ID do livro"  << endl;
     int id;
     cin >> id;
     return id;
@@ -41,16 +41,16 @@ void adicionarLivro(){
 }
 
 void editarLivro(){
-    
+
 }
 
 void removerLivro(){
     int id = pegarId();
     int indexLivro = 0;
     LIVRO livro;
-    
+
     for(int i = 0; i < qtdeLivros; i++){
-        if(biblioteca[i].id == id){         
+        if(biblioteca[i].id == id){
             //Ajeita os index
             for(int j = i; j < qtdeLivros; j++){
                 biblioteca[j] = biblioteca[j+1];
@@ -66,28 +66,40 @@ void removerLivro(){
 void exibirLivro(){
     int id = pegarId();
     LIVRO livro;
-    for(int i = 0; i < qtdeLivros; i++){
+    int i = 0;
+    for(i; i < qtdeLivros; i++){
         if(biblioteca[i].id == id){
             livro = biblioteca[i];
             break;
         }
     }
-    cout << "Nome: " << livro.nome << "\nAutor: " << livro.autor << "\nNumero de Paginas: " << livro.numeroPaginas << endl;
+
+    if(i != qtdeLivros){
+        cout << "Nome: " << livro.nome << "\nAutor: " << livro.autor << "\nNumero de Paginas: " << livro.numeroPaginas << endl;
+    }else{
+        cout << "Livro nao encontrado!" << endl;
+    }
+
 }
 
 void exibirBiblioteca(){
-    for(int i = 0; i < qtdeLivros; i++){
-        cout << "Nome: " << biblioteca[i].nome << endl;
-        cout << "Autor: " << biblioteca[i].autor << endl;
-        cout << "Numero de paginas: " << biblioteca[i].numeroPaginas << endl;
+    if(qtdeLivros > 0){
+        for(int i = 0; i < qtdeLivros; i++){
+            cout << "Nome: " << biblioteca[i].nome << endl;
+            cout << "Autor: " << biblioteca[i].autor << endl;
+            cout << "Numero de paginas: " << biblioteca[i].numeroPaginas << endl;
+        }
+    }else{
+        cout << "Bilioteca vazia!";
     }
+
 }
 
 int main(){
-
-    cout <<  "Insira seu comando \n 1-Adicionar \n 2-Editar \n 3-Exibir Livro \n 4-Exibir biblioteca \n 5-Remover Livro";
     int in = 0;
-    while(cin >> in){
+    do{
+        cout <<  "Insira seu comando \n 1-Adicionar \n 2-Editar \n 3-Exibir Livro \n 4-Exibir biblioteca \n 5-Remover Livro\n 6-Fechar programa \n";
+        cin >> in;
         switch(in){
             case 1:
                 adicionarLivro();
@@ -102,12 +114,12 @@ int main(){
                 exibirBiblioteca();
                 break;
             case 5:
-                //removerLivro();
+                removerLivro();
                 break;
             default:
-                cout << "Digite um comando valido";
+                cout << "Digite um comando valido! \n";
         }
-    }
+    }while(in != 6);
 
     return 0;
 }
