@@ -56,6 +56,27 @@ void exibirBiblioteca (){
     }
 }
 
+void excluirLivro (){
+    cout << "Insira o ID do livro que deseja excluir :" << endl;
+    int ID;
+    cin >> ID;
+    for(int i = 0; i<quantLivros; i++) {
+        if(biblioteca[i].ID == ID) {
+            for(int j = i; j < quantLivros; j++){
+                if(j+1 != quantLivros){
+                    biblioteca[j] = biblioteca[j+1];
+                }
+            }
+           quantLivros--;
+           cout << "Livro excluido" << endl;
+           return;
+        }
+    }
+    cout << "Sem livro irmao" << endl;
+
+
+}
+
 int main(){
 
     int resposta = 0;
@@ -65,7 +86,8 @@ int main(){
         cout << "1-Adicionar livro " << endl;
         cout << "2-Exibir Livro" << endl;
         cout << "3-Exibir biblioteca" << endl;
-        cout << "4-Fechar programa" << endl;
+        cout << "4-Excluir livro" << endl;
+        cout << "5-Fechar programa" << endl;
         cin >> resposta;
         switch(resposta){
         case 1:
@@ -77,10 +99,13 @@ int main(){
         case 3:
             exibirBiblioteca();
             break;
+        case 4:
+            excluirLivro();
+            break;
         default:
             cout << "Digite um comando valido cara" << endl;
         }
-    }while(resposta != 4);
+    }while(resposta != 5);
 
     return 0;
 }
